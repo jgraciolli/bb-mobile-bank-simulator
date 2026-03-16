@@ -1,11 +1,11 @@
 import React from "react";
 import {
-    GestureResponderEvent,
-    StyleSheet,
-    Text,
-    TextStyle,
-    TouchableOpacity,
-    ViewStyle,
+  GestureResponderEvent,
+  StyleSheet,
+  Text,
+  TextStyle,
+  TouchableOpacity,
+  ViewStyle,
 } from "react-native";
 import { bbBlue, bbYellow } from "../constants/colors";
 
@@ -17,13 +17,13 @@ export type AppButtonProps = {
   textStyle?: TextStyle;
 };
 
-export function AppButton({
+export const AppButton = ({
   title,
   onPress,
   disabled = false,
   style,
   textStyle,
-}: AppButtonProps) {
+}: AppButtonProps) => {
   return (
     <TouchableOpacity
       style={[styles.button, style, disabled && styles.disabled]}
@@ -34,7 +34,7 @@ export function AppButton({
       <Text style={[styles.text, textStyle]}>{title}</Text>
     </TouchableOpacity>
   );
-}
+};
 
 const styles = StyleSheet.create({
   button: {

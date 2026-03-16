@@ -1,47 +1,78 @@
-import { useRouter } from "expo-router";
-import { StyleSheet, Text, TextInput, View } from "react-native";
-import { AppButton } from "../components";
-import { bbGray, bbLightGray } from "../constants/colors";
+import { Link } from "expo-router";
+import { navigate } from "expo-router/build/global-state/routing";
+import { useState } from "react";
+import { StyleSheet, Text, View } from "react-native";
+import { AppButton, LabeledInput } from "../components";
+import { bbBlue, bbWhite } from "../constants/colors";
 
 const LoginScreen = () => {
-  const router = useRouter();
+  const [userCpf, setUserCpf] = useState("");
+  const [password, setPassword] = useState("");
 
   return (
-    <View>
-      <Text>Tela de login.</Text>
-      <AppButton title="Ir para Home" onPress={() => router.push("/home")} />
-      <AppButton
-        title="Ir para Registro"
-        onPress={() => router.push("/register")}
-      />
-      <AppButton
-        title="Fazer Transferência"
-        onPress={() => router.push("/transfer")}
-      />
-      <AppButton title="Ver Sucesso" onPress={() => router.push("/success")} />
-      <Text style={{ color: bbGray }}>Teste de texto com cor cinza.</Text>
-      <TextInput
-        style={styles.input}
+    <View style={styles.container}>
+      <Text style={styles.title}>Bem vindo ao banco do brasil!</Text>
+      <Text style={styles.subtitle}>Acesse sua conta para continuar</Text>
+
+      <LabeledInput
+        label="CPF"
+        value={userCpf}
+        onChangeText={setUserCpf}
         placeholder="000.000.000-00"
-        placeholderTextColor={bbGray}
+        keyboardType="number-pad"
+        maxLength={11}
       />
-      <TextInput
-        style={styles.input}
-        placeholder="Digite sua senha"
-        placeholderTextColor={bbGray}
+
+      <LabeledInput
+        label="Senha"
+        value={password}
+        onChangeText={setPassword}
+        placeholder="Digite sua senha..."
         secureTextEntry
       />
+
+      <AppButton
+        title="ACESSAR CONTA"
+        onPress={() => {
+          // colocar logica de login depois
+          navigate("/home");
+        }}
+      />
+      <View style={styles.registerContainer}>
+        <Text>
+          Não tem uma conta?{" "}
+          <Link href="/register" style={styles.registerButton}>
+            CADASTRE-SE.
+          </Link>
+        </Text>
+      </View>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  input: {
-    height: 40,
-    backgroundColor: bbLightGray,
-    marginBottom: 10,
-    paddingHorizontal: 10,
-    borderRadius: 20,
+  container: {
+    flex: 1,
+    padding: 16,
+    backgroundColor: bbWhite,
+    alignItems: "center",
+  },
+  title: {
+    fontSize: 24,
+    fontWeight: "bold",
+    marginBottom: 24,
+  },
+  subtitle: {
+    fontSize: 16,
+    color: bbBlue,
+    marginBottom: 24,
+  },
+  registerContainer: {
+    flexDirection: "row",
+    marginTop: 10,
+  },
+  registerButton: {
+    color: bbBlue,
   },
 });
 
