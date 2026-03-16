@@ -3,16 +3,17 @@ import { navigate } from "expo-router/build/global-state/routing";
 import { useState } from "react";
 import { StyleSheet, Text, View } from "react-native";
 import { AppButton, LabeledInput } from "../components";
-import { bbBlue, bbWhite } from "../constants/colors";
+import { bbBlue } from "../constants/colors";
+import { globalStyles } from "../styles/globalStyles";
 
 const LoginScreen = () => {
   const [userCpf, setUserCpf] = useState("");
   const [password, setPassword] = useState("");
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Bem vindo ao banco do brasil!</Text>
-      <Text style={styles.subtitle}>Acesse sua conta para continuar</Text>
+    <View style={globalStyles.container}>
+      <Text style={globalStyles.title}>Bem vindo ao banco do brasil!</Text>
+      <Text style={globalStyles.subtitle}>Acesse sua conta para continuar</Text>
 
       <LabeledInput
         label="CPF"
@@ -51,22 +52,6 @@ const LoginScreen = () => {
 };
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    padding: 16,
-    backgroundColor: bbWhite,
-    alignItems: "center",
-  },
-  title: {
-    fontSize: 24,
-    fontWeight: "bold",
-    marginBottom: 24,
-  },
-  subtitle: {
-    fontSize: 16,
-    color: bbBlue,
-    marginBottom: 24,
-  },
   registerContainer: {
     flexDirection: "row",
     marginTop: 10,
