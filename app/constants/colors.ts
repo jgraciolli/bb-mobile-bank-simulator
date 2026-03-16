@@ -1,9 +1,9 @@
 /**
  * Banco do Brasil brand colors (approximate).
- * Use these constants throughout the app to keep a consistent design.
- */
+ **/
 
-export const bbBlue = "#002663";
-export const bbYellow = "#FFCC00";
-export const bbGray = "#7F7F7F";
-export const bbLightGray = "#E5E5E5";
+export const bbBlue = "#3953ff";
+export const bbYellow = "#fdfc32";
+export const bbGray = "#6a6a6c";
+export const bbLightGray = "#f1f2f4";
+export const bbWhite = "#fefefe";

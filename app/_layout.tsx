@@ -1,5 +1,5 @@
 import { Stack } from "expo-router";
-import { bbBlue, bbLightGray, bbYellow } from "./constants/colors";
+import { bbBlue, bbWhite } from "./constants/colors";
 
 export default function RootLayout() {
   return (
@@ -7,14 +7,15 @@ export default function RootLayout() {
       initialRouteName="index"
       screenOptions={{
         headerStyle: { backgroundColor: bbBlue },
-        headerTintColor: bbYellow,
+        headerTintColor: "#f4ffff",
         headerTitleStyle: { fontWeight: "600" },
-        contentStyle: { backgroundColor: bbLightGray },
+        headerBackButtonDisplayMode: "minimal",
+        contentStyle: { backgroundColor: bbWhite },
       }}
     >
-      <Stack.Screen name="index" options={{ title: "Home" }} />
-      <Stack.Screen name="login" options={{ title: "Login" }} />
+      <Stack.Screen name="index" options={{ title: "Login" }} />
       <Stack.Screen name="register" options={{ title: "Registro" }} />
+      <Stack.Screen name="home" options={{ title: "Home" }} />
       <Stack.Screen name="transfer" options={{ title: "Transferência" }} />
       <Stack.Screen name="success" options={{ title: "Sucesso" }} />
     </Stack>
